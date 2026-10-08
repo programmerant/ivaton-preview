@@ -1,0 +1,86 @@
+/* Mobile disclosure menu; desktop navigation is unchanged. */
+.ivaton-menu-toggle { display: none; }
+@media (max-width: 640px) {
+    .header.has-mobile-menu {
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr) 44px;
+        align-items: center;
+        gap: 8px;
+        top: 24px;
+        height: 96px;
+        min-height: 96px;
+        z-index: 20;
+    }
+    .header.has-mobile-menu .logo-slot {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: center;
+        width: min(150px, 44vw);
+        height: 68px;
+    }
+    .header.has-mobile-menu .ivaton-menu-toggle {
+        grid-column: 3;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 6px;
+        width: 44px;
+        height: 44px;
+        padding: 6px;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        color: white;
+        cursor: pointer;
+    }
+    .ivaton-menu-toggle span {
+        display: block;
+        width: 32px;
+        height: 2px;
+        border-radius: 2px;
+        background: currentColor;
+    }
+    .ivaton-menu-toggle span:nth-child(2) { width: 23px; }
+    .ivaton-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .ivaton-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .ivaton-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .header.has-mobile-menu > nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        padding: 12px;
+        border: 1px solid #83d9ed60;
+        border-radius: 10px;
+        background: #0b2035;
+        box-shadow: 0 12px 30px #00000050;
+        font: 400 17px/1.4 Arial, Helvetica, sans-serif;
+        gap: 0;
+    }
+    .header.has-mobile-menu.is-menu-open > nav { display: flex; flex-direction: column; }
+    .header.has-mobile-menu > nav a {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        min-height: 48px;
+        padding: 10px 16px;
+        white-space: normal;
+        text-align: left;
+        text-shadow: none;
+        border-radius: 5px;
+    }
+    .header.has-mobile-menu > nav a:hover,
+    .header.has-mobile-menu > nav a:focus-visible { background: #163a54; }
+}
