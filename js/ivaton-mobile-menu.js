@@ -22,6 +22,14 @@
         button.appendChild(line);
     }
     const mobile = window.matchMedia("(max-width: 640px)");
+    const flags = document.querySelector("body > .language-switcher");
+    const flagsHome = flags && document.createComment("Language switcher position");
+    if (flags) flags.parentNode.insertBefore(flagsHome, flags);
+    function placeLanguages() {
+        if (!flags) return;
+        if (mobile.matches) nav.appendChild(flags);
+        else flagsHome.parentNode.insertBefore(flags, flagsHome.nextSibling);
+    }
     function setOpen(open, returnFocus = false) {
         const expanded = Boolean(open && mobile.matches);
         header.classList.toggle("is-menu-open", expanded);
@@ -49,9 +57,12 @@
     mobile.addEventListener("change", () => {
         const focused = document.activeElement;
         setOpen(false);
+        placeLanguages();
         if (mobile.matches && nav.contains(focused)) button.focus();
         if (!mobile.matches && focused === button) nav.querySelector("a")?.focus();
+        if (!mobile.matches && flags && flags.contains(focused)) focused.focus();
     });
     header.insertBefore(button, nav);
     header.classList.add("has-mobile-menu");
+    placeLanguages();
 })();
