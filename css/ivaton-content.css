@@ -1,0 +1,60 @@
+/* IVATON: company copy and enquiry form details. */
+
+.about-copy {
+    color: var(--muted);
+}
+
+.services ul {
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.services li {
+    margin-bottom: 10px;
+}
+
+address {
+    font-style: normal;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+address a {
+    color: var(--gold);
+}
+
+.consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+.consent input {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    margin-top: 3px;
+    accent-color: var(--gold);
+}
+
+#subject {
+    margin-bottom: 8px;
+}
+
+#subject-error {
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(42px,5.6vw,82px);
+}
+
+@media(max-width:640px) {
+    .hero h1 {
+        font-size: clamp(34px,8.6vw,55px);
+    }
+}
