@@ -151,7 +151,7 @@ body > .language-switcher a[href="de.html"] { order: 3; }
         align-items: center;
     }
     .header .logo-slot {
-        width: clamp(64px, 20vw, 100px);
+        width: clamp(76px, 24vw, 120px);
         height: 56px;
     }
     .header > nav {
